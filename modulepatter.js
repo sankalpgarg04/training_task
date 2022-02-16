@@ -14,7 +14,7 @@ function employeeDetails(){
             console.log("Designation of employee : "+designation);
         },
         getSalary : function(){
-            console.log("Salary with bonus : "+salary);
+            console.log("Salary  : "+salary);
         },
     }
 }
