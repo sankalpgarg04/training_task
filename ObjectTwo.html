@@ -3,20 +3,19 @@
 <head>  
 <title> page title</title>  
 <script>  
-function mouseOver() {
+debugger;
+function mouseOver(event) {
      document.getElementById("abc").style.color = "red";
-     document.getElementById("def").style.color = "red";
    }
-
-   function mouseOut() {
+debugger;
+   function mouseOut(event) {
      document.getElementById("abc").style.color = "black";
-     document.getElementById("def").style.color = "black";
    }  
 </script>  
 </head>  
 <body> 
     <div> 
-    <div id="abc" class="text-center" style="border:1px solid black;; width: 300px; height: 300px;" onmouseover="mouseOver()" onmouseout="mouseOut()">
+    <div id="abc" class="text-center" style="border:1px solid black;; width: 300px; height: 300px;" onmouseover="mouseOver(event)" onmouseout="mouseOut(event)">
         <h1>welcome</h1>
       </div>  
       <div id="def" class="text-center" style="border:1px solid black;; width: 300px; height: 300px;" onmouseover="mouseOver()" onmouseout="mouseOut()">
