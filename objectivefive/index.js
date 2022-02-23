@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import App from './components/UserListComponent.js';
-import App from "./classComponent/SearchCards.js";
-
+import App from './displaydata.js';
+// import App from "./classComponent/SearchCards.js";
 //import SearchCard from "./classComponent/SearchCards.js";
 debugger;
 
