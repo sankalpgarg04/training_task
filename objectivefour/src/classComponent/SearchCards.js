@@ -13,22 +13,16 @@ class Form extends Component {
   }
 
   handleChange(event){
-      this.setState({
-        formtext: event.target.value,
-        //  formtext: "4",
-
-        // data = userList.filter( return { userList.id  })
-        
-        data : userList.filter( id => {
-            // returthis.state.id == this.state.formtext
-            if (userList.id === this.state.formtext){
-                return this.state.data.find(userList.id);
-            }
-        })
-      })
+    debugger;
+      this.formtext = event.target.value;
+      if (this.formtext !== "") {
+        this.data = userList.filter((user) => {
+          return userList.name.toLowerCase().startsWith(this.formtext.toLowerCase());
+        });
+      } else {
+      }
+    }
       debugger;
-  }
-
 //   handleChange = event => {
 //     this.setState({
 //         formtext: event.target.value,
