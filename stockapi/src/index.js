@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './classComponent/sbiapi.js';
+import App from './Component/addUser.js';
 // import App from "./classComponent/SearchCards.js";
 //import SearchCard from "./classComponent/SearchCards.js";
 debugger;
