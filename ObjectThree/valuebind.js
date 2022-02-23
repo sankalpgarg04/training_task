@@ -18,10 +18,12 @@ document.getElementById("userInput").value = num.getNum;
 
 function onSubmit(){
     num.changeNum = document.getElementById("userInput").value;
-    randomValue();
     document.getElementById("userInput").value = num.firstNum;
 }
-
+setInterval(() => {
+    randomValue();
+    document.getElementById("userInput").value = num.getNum;
+}, 5000);
 function randomValue(){
     num.changeNum = Math.floor(Math.random() * 100);
 }
