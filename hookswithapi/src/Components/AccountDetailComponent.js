@@ -1,8 +1,8 @@
 import { Component, useState } from "react";
-import AccountListComponent from "./AccountListComponent";
+//import AccountListComponent from "./AccountListComponent";
 import axios from "axios";
-import GetAllAccount from '../HooksImplementation/AccountApiGetWithHooks'
-import UpdateUserAccount from '../HooksImplementation/AccountApiPutWithHooks'
+import GetAllAccount from './GetHook'
+import UpdateUserAccount from './putHook'
 
 export default function AccountDetailsComponent(props) {
 

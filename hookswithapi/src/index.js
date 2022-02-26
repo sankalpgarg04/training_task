@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Components/GetHook';
+//import App from './Components/GetHook';
 // import App from "./classComponent/SearchCards.js";
 //import SearchCard from "./classComponent/SearchCards.js";
+import App from './singlePageApplication/MainComponent'
 debugger;
 
 ReactDOM.render(<App></App>
