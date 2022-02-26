@@ -6,7 +6,8 @@ export default class UserListComponent extends Component {
     constructor(){
         super();
         this.state={
-            'accountdetail':[]
+            'accountdetail':[],
+            'search':""
         }
     }
     // debugger;
@@ -14,13 +15,17 @@ export default class UserListComponent extends Component {
     return (
         <div>
             <div>
+            <input
+                placeholder="search keyword" value={this.state.search}
+                onChange={this.onSearchChange} required
+            />
                 <Displaydata detail= {this.state.accountdetail.data}></Displaydata>
             </div>
         </div>
     )
 }
 componentDidMount(){
-    var dataPromise=axios.get("https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/SBI");
+    var dataPromise=axios.get("https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/"+{search});
     dataPromise.then((response)=>{
         debugger;
         this.setState({

@@ -1,8 +1,12 @@
 import { Component } from "react";
+import AccountListComponent from "./AccountListComponent";
 import axios from "axios";
+import GetAllAccount from '../HooksImplementation/AccountApiGetWithHooks'
 
 export default function AccountDetailsComponent(props) {
-    debugger;
+
+    var abcd = false;
+
     var styleObject = {
         containerStyle: {
             width: "18rem",
@@ -10,11 +14,19 @@ export default function AccountDetailsComponent(props) {
             display: "inline-block"
         }
     };
-    var deleteEmployee = (event) => {
+
+    const DeleteHook = (e) => {
+        var id = e.target.id;
         debugger;
-        axios.delete("https://5a530e1477e1d20012fa066a.mockapi.io/login/" + event.target.id).then(() => {
+        axios.delete("https://localhost:5001/api/Student/DeleteAccountWithoutAlert?id=" + id).then(() => {
+            debugger;
             alert("Employee is Deleted");
+            abcd = true;
+            debugger;
+            // GetAllAccount();
         })
+        debugger;
+        
     }
 
     return (
@@ -25,7 +37,7 @@ export default function AccountDetailsComponent(props) {
                     <div>
                         <p className="card-text">{props.accountNumber} <br /> <b>{props.customerName}</b> <br /> {props.currentAddress} <br /> {props.currentBalance}</p>
                     </div>
-                    <input type="button" id={props.id} className="btn btn-primary" value="Delete" onClick={this.deleteEmployee} />                
+                    <input type="button" className="btn btn-primary" id={props.accountNumber} value="Delete" onClick={DeleteHook} />
                 </div>
             </div>
         </div>

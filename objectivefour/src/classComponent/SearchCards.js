@@ -8,22 +8,23 @@ class Form extends Component {
     super();
     this.state = {
         formtext: "",
-        data: userList
+        data: userList,
+        updata: userList
     }
   }
 
   handleChange(event){
     debugger;
-      this.formtext = event.target.value;
-      if (this.formtext !== "") {
+      this.state.formtext = event.target.value;
+      if (this.state.formtext !== "") {
         this.setState({
-        data : this.state.data.filter((user) => {
-            return user.id.startsWith(this.formtext)
+        updata : this.state.data.filter((user) => {
+            return user.id.startsWith(this.state.formtext)
           })
         });
       } 
       else {
-        this.state.data= userList
+        this.state.updata= userList
         debugger;
       }
     }
@@ -35,7 +36,7 @@ class Form extends Component {
         <br />
         <p>The name entered is {this.state.formtext}</p>
 
-        <App detail={this.state.data}> </App>
+        <App detail={this.state.updata}> </App>
       </div>
     )
     debugger;
