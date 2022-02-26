@@ -3,28 +3,34 @@ import axios from 'axios';
 // import GetHook from './AccountApiGetWithHooks';
 
 export default function PutHook(props) {
-    // var [accountNumber, setNumber] = useState(props.dataSend.accountNumber);
-    // var [customerName, setName] = useState(props.dataSend.customerName);
+    debugger;
+    var [accountNumber, setNumber] = useState(props.pro ?  props.pro.accountNumber : "");
+    var [customerName, setName] = useState(props.pro ? props.pro.customerName : "");
+    var [currentAddress, setAddress] = useState(props.pro ? props.pro.currentAddress : "");
+    var [currentBalance, setBalance] = useState(props.pro ? props.pro.currentBalance : "");
     
-    var [accountNumber, setNumber] = useState("");
-    var [customerName, setName] = useState("");
-    var [currentAddress, setAddress] = useState("");
-    var [currentBalance, setBalance] = useState("");
+    debugger;
+    // var accountNumber = props.pro.accountNumber;
+    // var customerName = props.pro.customerName;
+    // var currentAddress = props.pro.currentAddress;
+    // var currentBalance = props.pro.currentBalance;
 
     // var [data, setData] = useState([]);
 
-    useEffect(() => {
-        setNumber(props.dataSend.accountNumber);
-        setName(props.dataSend.customerName);
-        setAddress(props.dataSend.currentAddress);
-        setBalance(props.dataSend.currentBalance);
-        debugger;
-    }, [])
+    // useEffect(() => {
+    //     setNumber(props.dataSend.accountNumber);
+    //     setName(props.dataSend.customerName);
+    //     setAddress(props.dataSend.currentAddress);
+    //     setBalance(props.dataSend.currentBalance);
+    //     debugger;
+    // }, [])
 
     const onNumberChange = e => {
         setNumber(e.target.value);
     };
 
+    debugger;
+    
     const onNameChange = e => {
         setName(e.target.value);
     };
@@ -46,43 +52,39 @@ export default function PutHook(props) {
             currentBalance,
     };
 
-        const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        };
-
         axios
-          .post("https://localhost:5001/api/Student/AddStudent", data)
+          .put("https://localhost:5001/api/Student/UpdateAccount?id="+accountNumber, data)
           .then(res => console.log(res))
           .catch(err => console.log(err));
+          alert("Data Updated");
+          debugger;
     };
 
     return (
-        <div className="AccountAddComponent">
-            <form className="AccountAddComponent" onSubmit={handleSubmit}>
+        <div className="AccountApiPutWithHooks">
+            <form className="AccountApiPutWithHooks" onSubmit={handleSubmit}>
                 {/* <label value="Account Number"></label> */}
                 <input
-                    placeholder={props.dataSend.accountNumber} value={accountNumber}
+                    placeholder={accountNumber} value={accountNumber}
                     onChange={onNumberChange} required />
                 <br />
 
                 <input
-                    placeholder={props.dataSend.customerName} value={customerName}
+                    placeholder={customerName} value={customerName}
                     onChange={onNameChange} required />
                 <br />
 
                 <input
-                    placeholder={props.dataSend.currentAddress} value={currentAddress}
+                    placeholder={currentAddress} value={currentAddress}
                     onChange={onAddressChange} required />
                 <br />
 
                 <input
-                    placeholder={props.dataSend.currentBalance} value={currentBalance}
+                    placeholder={currentBalance} value={currentBalance}
                     onChange={onBalanceChange} required />
                 <br />
 
-                <button type="submit">Add Student </button>
+                <button type="submit"> Update Student </button>
             </form>
         </div>
     );

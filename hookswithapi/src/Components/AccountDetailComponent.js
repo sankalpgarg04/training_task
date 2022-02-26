@@ -1,11 +1,12 @@
-import { Component } from "react";
+import { Component, useState } from "react";
 import AccountListComponent from "./AccountListComponent";
 import axios from "axios";
 import GetAllAccount from '../HooksImplementation/AccountApiGetWithHooks'
+import UpdateUserAccount from '../HooksImplementation/AccountApiPutWithHooks'
 
 export default function AccountDetailsComponent(props) {
 
-    var abcd = false;
+    var [abcd,setAbcd]= useState("");
 
     var styleObject = {
         containerStyle: {
@@ -23,10 +24,28 @@ export default function AccountDetailsComponent(props) {
             alert("Employee is Deleted");
             abcd = true;
             debugger;
+            // AccountDetailsComponent();
             // GetAllAccount();
         })
         debugger;
+    }
+
+    const UpdateUser = (e) => {
+        debugger;
+        // var koiBHiObject = props.detail;
+        setAbcd(true);
+        debugger;
         
+        // return (
+        //     <div>
+        //         <UpdateUserAccount key={koiBHiObject.accountNumber} detail = {koiBHiObject} > </UpdateUserAccount>
+        //     </div>   
+        // )
+        
+        // UpdateUserAccount(koiBHiObject);
+        // debugger;
+
+
     }
 
     return (
@@ -35,9 +54,12 @@ export default function AccountDetailsComponent(props) {
             <div className="card-body">
                 <div>
                     <div>
-                        <p className="card-text">{props.accountNumber} <br /> <b>{props.customerName}</b> <br /> {props.currentAddress} <br /> {props.currentBalance}</p>
+                        <p className="card-text">{props.detail.accountNumber} <br /> <b>{props.detail.customerName}</b> <br /> {props.detail.currentAddress} <br /> {props.detail.currentBalance}</p>
                     </div>
-                    <input type="button" className="btn btn-primary" id={props.accountNumber} value="Delete" onClick={DeleteHook} />
+                    <input type="button" className="btn btn-primary" id={props.detail.accountNumber} value="Delete" onClick={DeleteHook} />
+                    <input type="button" className="btn btn-primary" value="Updat3" onClick={UpdateUser} />
+                    {/* {abcd === true ? GetAllAccount() : ""} */}
+                    {abcd && <UpdateUserAccount pro = {props.detail}></UpdateUserAccount>}
                 </div>
             </div>
         </div>
